@@ -49,5 +49,15 @@
     <script>
       $(() => App.initialize());
     </script>
+    <script>
+        $(document).ready(function() {
+
+          MessageView.render(Messages)
+
+          $( ".username" ).click(function() {
+            Friends.toggleStatus.called = true;
+          });
+        }
+    </script>
   </body>
 </html>
