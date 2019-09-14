@@ -7,10 +7,26 @@ var FormView = {
   },
 
   handleSubmit: function(event) {
-    // Stop the browser from submitting the form
     event.preventDefault();
-    
     console.log('click!');
+
+    var value = $('#message').val();
+    console.log(value);
+
+    var message = {username: App.username, text: value};
+
+    Parse.create(message, function() {
+      console.log('success!!');
+    }, function() {
+      console.log('whomp whomp');
+    });
+
+    /*
+    2. use the Parse.create POST method
+    3.Consider what goes into the successCB callback
+
+      create: function(message, successCB, errorCB = null) {
+    */
   },
 
   setStatus: function(active) {

@@ -17,6 +17,7 @@
           search += '&';
         }
         search += 'username=' + (prompt('What is your name?') || 'anonymous');
+        // we want to send whatever prompt evalates to to the server to tell it that there is a new user.
         window.location.search = search;
       }
     </script>
@@ -48,16 +49,6 @@
     <script src="client/scripts/app.js"></script>
     <script>
       $(() => App.initialize());
-    </script>
-    <script>
-        $(document).ready(function() {
-
-          MessageView.render(Messages)
-
-          $( ".username" ).click(function() {
-            Friends.toggleStatus.called = true;
-          });
-        }
     </script>
   </body>
 </html>

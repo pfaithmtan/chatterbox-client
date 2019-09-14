@@ -3,7 +3,28 @@ var MessagesView = {
   $chats: $('#chats'),
 
   initialize: function() {
+
+    Parse.readAll((data) => {
+      // examine the response from the server request:
+      console.log(data);
+
+      for (let i = 0; i < data.results.length; i++) {
+        var rendered = MessageView.render(data.results[i]);
+
+        MessagesView.$chats.append(rendered);
+      }
+    });
+
+
   },
+
+  // Parse.readAll((data) => {
+  //   // examine the response from the server request:
+  //   console.log(data);
+
+  //   callback();
+  // });
+
 
   render: function() {
   },
